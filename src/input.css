@@ -1,0 +1,80 @@
+/**
+ * This injects Tailwind's base styles and any base styles registered by
+ * plugins.
+ */
+@tailwind base;
+/**
+ * This injects Tailwind's base styles and any base styles registered by
+ * plugins.
+ */
+@tailwind components;
+/**
+ * This injects Tailwind's utility classes and any utility classes registered
+ * by plugins.
+ */
+@tailwind utilities;
+
+/**
+ * Use this directive to control where Tailwind injects the hover, focus,
+ * responsive, dark mode, and other variants of each class.
+ *
+ * If omitted, Tailwind will append these classes to the very end of
+ * your stylesheet by default.
+ */
+ /* @tailwind variants */
+
+/* custom class/directives for our container */
+/* because they all contain these three classes */
+.section-container {
+   @apply max-w-6xl mx-auto text-center px-10
+ }
+ .section-paragraph {
+   @apply max-w-3xl mx-auto mb-24  font-thin text-center text-grayishBlue
+ }
+
+ .button-container {
+   @apply flex flex-col items-center justify-center w-full space-y-2 md:flex-row md:space-y-0 md:space-x-4
+ }
+
+ .button-style {
+   @apply p-4 px-8 text-white duration-200 rounded-full shadow hover:opacity-80
+ }
+
+
+/* Adding custom default classes to base classes */
+/* heading are within the base of the layer */
+ @layer base {
+
+   h3 {
+      @apply mb-8 text-4xl font-bold text-darkGrayishBlue md:text-5xl
+   }
+
+   h5 {
+      @apply mb-2 text-2xl font-bold text-darkGrayishBlue
+   }
+
+ }
+ 
+ body {
+
+    background-image: url('../src/images/bg-header-desktop.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+     
+ }
+
+ /* Using media query to define the background image on moblie devices  */
+ @media(max-width: 576px){
+    body {
+
+        background-image: url('../src/images/bg-header-mobile.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+
+    }
+ }
+
+ .ficon:hover {
+  filter: invert(53%) sepia(68%) saturate(424%) hue-rotate(121deg) brightness(101%) contrast(94%);
+ }
